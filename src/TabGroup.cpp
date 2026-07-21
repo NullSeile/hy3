@@ -797,10 +797,10 @@ void Hy3TabGroup::renderTabBar() {
 			auto window = windowref.lock();
 
 			auto wpos =
-			    window->m_realPosition->value() - monitor->m_position
+			    window->positionAnimation()->value() - monitor->m_position
 			    + (window->m_workspace ? window->m_workspace->m_renderOffset->value() : Vector2D());
 
-			auto wsize = window->m_realSize->value();
+			auto wsize = window->sizeAnimation()->value();
 
 			CBox window_box = {wpos.x, wpos.y, wsize.x, wsize.y};
 			auto border = window->getRealBorderSize();
